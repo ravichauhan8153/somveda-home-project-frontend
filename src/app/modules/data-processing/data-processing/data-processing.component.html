@@ -1,0 +1,110 @@
+<div class="container-fluid pt-4 pb-5">
+  <div class="row">
+    <div class="col-12 col-lg-12 col-xl-12">
+      <div class="table_box boxes">
+        <div class="namediv">
+          <h4 class="title">Details Table</h4>
+          <div class="rightside">
+            <form class="form-inline pull-left mt-1">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"
+                    ><i class="fa fa-search" aria-hidden="true"></i
+                  ></span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  placeholder="Search..."
+                  aria-label="search"
+                  aria-describedby="basic-addon1"
+                  (keyup)="serch($event)"
+                />
+              </div>
+            </form>
+            <button type="button" class="btn-import">
+              Import <input type="file" (change)="onSelectFile($event)" />
+            </button>
+          </div>
+        </div>
+        <div class="table_responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th (click)="short('id')">
+                  Id
+                  <i class="fa fa-sort-amount-desc"></i>
+                </th>
+                <th (click)="short('title')">
+                  Title <i class="fa fa-sort-amount-asc"></i>
+                </th>
+                <th (click)="short('danceability')">
+                  Danceability <i class="fa fa-sort-amount-asc"></i>
+                </th>
+                <th (click)="short('energy')">
+                  Energy <i class="fa fa-sort-amount-asc"></i>
+                </th>
+                <th (click)="short('mode')">
+                  Mode <i class="fa fa-sort-amount-asc"></i>
+                </th>
+                <th (click)="short('acousticness')">
+                  Acousticness <i class="fa fa-sort-amount-asc"></i>
+                </th>
+                <th (click)="short('tempo')">
+                  Tempo <i class="fa fa-sort-amount-asc"></i>
+                </th>
+                <th (click)="short('duration_ms')">
+                  Duration_ms <i class="fa fa-sort-amount-asc"></i>
+                </th>
+                <th (click)="short('num_sections')">
+                  Num_sections <i class="fa fa-sort-amount-asc"></i>
+                </th>
+                <th (click)="short('num_segments')">
+                  Num_segments <i class="fa fa-sort-amount-asc"></i>
+                </th>
+              </tr>
+            </thead>
+            <tr *ngFor="let data of dataArray">
+              <td>{{ data?.id }}</td>
+              <td>{{ data?.title }}</td>
+              <td>{{ data?.danceability }}</td>
+              <td>{{ data?.energy }}</td>
+              <td>{{ data?.mode }}</td>
+              <td>{{ data?.acousticness }}</td>
+              <td>{{ data?.tempo }}</td>
+              <td>{{ data?.duration_ms }}</td>
+              <td>{{ data?.num_sections }}</td>
+              <td>{{ data?.num_segments }}</td>
+            </tr>
+          </table>
+        </div>
+        <nav aria-label="Page navigation example" *ngIf="totalPage > 1">
+          <ul class="pagination justify-content-center mt-2">
+            <li
+              class="page-item"
+              [class.disabled]="currentPage == 1"
+              (click)="selectNextPrevious(false)"
+            >
+              <a class="page-link">Previous</a>
+            </li>
+            <li
+              class="page-item"
+              *ngFor="let i of [].constructor(totalPage); let no = index"
+              [class.pageSelected]="currentPage == no + 1"
+              (click)="selectPage(no + 1)"
+            >
+              <a class="page-link">{{ no + 1 }}</a>
+            </li>
+            <li
+              class="page-item"
+              [class.disabled]="currentPage == totalPage"
+              (click)="selectNextPrevious(true)"
+            >
+              <a class="page-link">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

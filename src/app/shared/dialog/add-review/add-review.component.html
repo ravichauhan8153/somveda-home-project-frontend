@@ -1,0 +1,60 @@
+<mat-dialog-content>
+  <div class="d-inline-block w-100">
+    <div class="w-100 d-inline-block postedwith">
+      <form accept-charset="UTF-8" action="" method="post">
+        <!-- <textarea
+          class="form-control mb-3"
+          name="comment"
+          placeholder="Enter your review here..."
+          rows="4"
+        ></textarea> -->
+        <div class="rate">
+          <input
+            type="radio"
+            id="star5"
+            name="rate"
+            value="5"
+            (change)="onRateChange($event)"
+          />
+          <label for="star5" title="5 star">5 stars</label>
+          <input
+            type="radio"
+            id="star4"
+            name="rate"
+            value="4"
+            (change)="onRateChange($event)"
+          />
+          <label for="star4" title="4 star">4 stars</label>
+          <input
+            type="radio"
+            id="star3"
+            name="rate"
+            value="3"
+            (change)="onRateChange($event)"
+          />
+          <label for="star3" title="3 star">3 stars</label>
+          <input
+            type="radio"
+            id="star2"
+            name="rate"
+            value="2"
+            (change)="onRateChange($event)"
+          />
+          <label for="star2" title="2 star">2 stars</label>
+          <input
+            type="radio"
+            id="star1"
+            name="rate"
+            value="1"
+            (change)="onRateChange($event)"
+          />
+          <label for="star1" title="1 start">1 star</label>
+        </div>
+      </form>
+    </div>
+  </div>
+</mat-dialog-content>
+<div class="btnlistdiv">
+  <button type="button" (click)="close()" class="btn btn-can">Cancel</button>
+  <button type="button" (click)="save()" class="btn btn-saves">Save</button>
+</div>

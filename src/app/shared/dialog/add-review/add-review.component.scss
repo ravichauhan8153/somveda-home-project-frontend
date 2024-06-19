@@ -1,0 +1,71 @@
+.btnlistdiv {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #e4e7ec;
+  width: 100%;
+  padding: 15px 18px;
+  .btn-can {
+    color: #344054;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    border-radius: 8px;
+    border: 1px solid #d0d5dd;
+    background: #fff;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    margin-right: 10px;
+  }
+  .btn-saves {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    border-radius: 8px;
+    border: 1px solid #ec4a0a;
+    background: #ec4a0a;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  }
+}
+.disabled-page {
+  opacity: 0.6;
+}
+.form-control {
+    box-shadow: none;
+    outline: none;
+    resize: none;
+}
+.rate {
+    float: left;
+    height: 32px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
